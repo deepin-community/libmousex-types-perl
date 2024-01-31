@@ -1,15 +1,33 @@
-Source: template-repository
-Section: unknown
+Source: libmousex-types-perl
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Uploaders: gregor herrmann <gregoa@debian.org>
+Section: perl
+Testsuite: autopkgtest-pkg-perl
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Build-Depends: debhelper-compat (= 13), libmodule-install-perl
+Build-Depends-Indep: perl,
+                     libany-moose-perl,
+                     libmouse-perl,
+                     libsub-exporter-perl,
+                     libtest-exception-perl
+Standards-Version: 3.9.2
+Vcs-Browser: https://salsa.debian.org/perl-team/modules/packages/libmousex-types-perl
+Vcs-Git: https://salsa.debian.org/perl-team/modules/packages/libmousex-types-perl.git
+Homepage: https://metacpan.org/release/MouseX-Types
 
-Package: template-repository
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Package: libmousex-types-perl
+Architecture: all
+Depends: ${misc:Depends},
+         ${perl:Depends},
+         libany-moose-perl,
+         libmouse-perl
+Description: Mouse extension to organise types in libraries
+ MouseX::Types allows developers to organise and selectively import your own
+ and the built-in types in libraries, rather than the default behaviour where
+ types are global. As a nice side effect, it catches typographic errors at
+ compile-time too.
+ .
+ The main motivation for this module is to provide an easy way of preventing
+ conflicts with your type names, since the internal fully qualified names of
+ the types will be prefixed with the library's name. It also provides some
+ convenient functions for working with Mouse types.
